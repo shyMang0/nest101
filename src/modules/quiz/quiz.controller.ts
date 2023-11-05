@@ -8,6 +8,7 @@ import {
 	// ValidationPipe,
 } from '@nestjs/common'
 import { CreateQuizDto } from './dto/CreateQuiz.dto'
+import { SearchQuiz } from './dto/SearchQuiz.dto'
 // import { Type } from 'class-transformer'
 
 @Controller('quiz')
@@ -19,7 +20,7 @@ import { CreateQuizDto } from './dto/CreateQuiz.dto'
 // )
 export class QuizController {
 	@Get('/')
-	getAllQuiz(@Query() quizData: any) {
+	getAllQuiz(@Query() quizData: SearchQuiz) {
 		return quizData
 		return 'all quizes'
 	}
