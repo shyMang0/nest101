@@ -16,8 +16,11 @@ export class SearchQuiz {
 	@Length(3, 255)
 	title: string
 
-	@IsNumberString()
-	@Transform(({ value }) => parseInt(value))
+	// @IsNumberString()
+	@IsNotEmpty({ message: 'must have page value' })
+	@Transform(({ value }) =>
+		Number.isInteger(parseInt(value)) ? parseInt(value) : 0,
+	)
 	page: number
 
 	// @Type(() => CreateQuizDto, {
