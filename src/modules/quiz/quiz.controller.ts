@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common'
 import { CreateQuizDto } from './dto/CreateQuiz.dto'
 import { SearchQuiz } from './dto/SearchQuiz.dto'
+import { ApiBody } from '@nestjs/swagger'
 // import { Type } from 'class-transformer'
 
 @Controller('quiz')
@@ -32,6 +33,7 @@ export class QuizController {
 	// 	}),
 	// )
 	@Post('/')
+	@ApiBody({ type: CreateQuizDto })
 	createQuiz(@Body() quizData: CreateQuizDto) {
 		// async register(@Type(() => UserRegistrationDto) @Body() userRegistrationDto: UserRegistrationDto) {
 		return quizData
